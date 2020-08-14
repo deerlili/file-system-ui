@@ -28,20 +28,25 @@ export default {
   data() {
     return {
       columnOptions: [{
-        value: 'extendname',
+        value: 'extendName',
         label: '类型'
       }, {
-        value: 'filesize',
+        value: 'fileSize',
         label: '大小'
       }, {
-        value: 'uploadtime',
+        value: 'uploadTime',
         label: '修改日期'
       }]
     }
   },
   computed: {
-    selectedColumnList() {
-      return this.$store.getters.selectedColumnList
+    selectedColumnList: {
+      get() {
+        return this.$store.getters.selectedColumnList
+      },
+      set() {
+        return []
+      }
     }
   },
   methods: {

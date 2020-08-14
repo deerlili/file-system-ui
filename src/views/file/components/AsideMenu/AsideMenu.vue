@@ -24,23 +24,23 @@
       :default-active="activeIndex"
       @select="handleSelect"
     >
-      <el-menu-item :index="0">
+      <el-menu-item index="0">
         <i class="el-icon-menu" title="全部"></i>
         <span slot="title" v-show="!isFolder">全部</span>
       </el-menu-item>
-      <el-menu-item :index="1" title="图片">
+      <el-menu-item index="1" title="图片">
         <i class="el-icon-picture"></i>
         <span slot="title" v-show="!isFolder">图片</span>
       </el-menu-item>
-      <el-menu-item :index="2" title="文档">
+      <el-menu-item index="2" title="文档">
         <i class="el-icon-document"></i>
         <span slot="title" v-show="!isFolder">文档</span>
       </el-menu-item>
-      <el-menu-item :index="3" title="视频">
+      <el-menu-item index="3" title="视频">
         <i class="el-icon-video-camera-solid"></i>
         <span slot="title" v-show="!isFolder">视频</span>
       </el-menu-item>
-      <el-menu-item :index="4" title="音乐">
+      <el-menu-item index="4" title="音乐">
         <i class="el-icon-headset"></i>
         <span slot="title" v-show="!isFolder">音乐</span>
       </el-menu-item>
@@ -66,10 +66,10 @@ export default {
     //  当前活跃菜单项index，也是当前被选中的文件类型
     activeIndex: {
       get() {
-        return Number(this.$route.query.filetype)
+        return String(this.$route.query.fileType)
       },
       set() {
-        return 0
+        return '0'
       }
     },
     //  判断当前用户设置的左侧栏是否折叠
@@ -82,7 +82,7 @@ export default {
     handleSelect(index) {
       this.$router.push({
         path: '/file',
-        query: { filepath: '/', filetype: index }
+        query: { filePath: '/', fileType: index }
       })
     }
   }
